@@ -21,5 +21,8 @@ public class MainActivity extends AppCompatActivity{
         ToDoList = (CheckBox) findViewById(R.id.ToDoList);
         inputListButton = (Button) findViewById(R.id.inputListButton);
         inputListText = (EditText) findViewById(R.id.inputListText);
+
+
+
     }
 }
