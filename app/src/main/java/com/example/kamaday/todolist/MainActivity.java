@@ -1,10 +1,10 @@
 package com.example.kamaday.todolist;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -12,7 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
 
     public static CheckBox ToDoList;
@@ -33,22 +33,27 @@ public class MainActivity extends AppCompatActivity{
         inputListButton = (Button) findViewById(R.id.inputListButton);
         inputListText = (EditText) findViewById(R.id.inputListText);
 
-        inputListButton.setOnClickListener(new View.OnClickListener() {
+        inputListText.setOnKeyListener(new OnKeyListener() {
             @Override
-            public void onClick(View v) {
-
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
                 inputToDoList();
+                return false;
             }
         });
 
+        inputListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputToDoList();
+            }
+        });
     }
+
 
     public void inputToDoList() {
 
         final String ListText = inputListText.getText().toString();
         ToDoList.setText(ListText);
-
-
 
 
     }
