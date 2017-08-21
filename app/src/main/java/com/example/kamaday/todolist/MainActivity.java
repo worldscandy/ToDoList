@@ -23,6 +23,5 @@ public class MainActivity extends AppCompatActivity{
         inputListText = (EditText) findViewById(R.id.inputListText);
 
 
-
     }
 }
