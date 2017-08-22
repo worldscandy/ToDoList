@@ -11,50 +11,40 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    public static CheckBox ToDoList;
-    public static Button inputListButton;
-    public static EditText inputListText;
-
-    private LinearLayout mainLayout;
-    private InputMethodManager inputMethodManager;
+    ScrollView scrollView_list;
+    LinearLayout linearLayout_list;
+    LinearLayout inoutLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //edittextにフォーカスが当たり、アプリ起動時からIMEが開いている状態を回避するコード
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        setContentView(R.layout.activity_main);
-
-        ToDoList = (CheckBox) findViewById(R.id.ToDoList);
-        inputListButton = (Button) findViewById(R.id.inputListButton);
-        inputListText = (EditText) findViewById(R.id.inputListText);
-
-        inputListText.setOnKeyListener(new OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                inputToDoList();
-                return false;
-            }
-        });
-
-        inputListButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                inputToDoList();
-            }
-        });
-    }
+        //setContentView(R.layout.activity_main);
 
 
-    public void inputToDoList() {
+        scrollView_list = new ScrollView(this);
+        linearLayout_list = new LinearLayout(this);
+        linearLayout_list.setOrientation(LinearLayout.VERTICAL);
 
-        final String ListText = inputListText.getText().toString();
-        ToDoList.setText(ListText);
+        inoutLayout = new LinearLayout(this);
 
 
+        for (int i = 0; i < 30; i++) {
+            CheckBox ToDolist = new CheckBox(this);
+            linearLayout_list.addView(ToDolist);
+        }
+
+        // ScrollView に View を追加
+        scrollView_list.addView(linearLayout_list);
+
+        setContentView(scrollView_list);
     }
 }
+
+
+

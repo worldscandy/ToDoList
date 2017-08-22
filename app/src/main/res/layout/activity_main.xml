@@ -9,10 +9,12 @@
     tools:context=".MainActivity">
 
     <ScrollView
+        android:id="@+id/scrollView_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
         <LinearLayout
+            android:id="@+id/LinearLayout_list"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,17 +25,11 @@
             android:paddingRight="16dp"
             android:paddingBottom="16dp">
 
-            <CheckBox
-                android:id="@+id/ToDoList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="9pt"
-                />
-
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
+        android:id="@+id/inoutLayout"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -59,3 +55,4 @@
     </LinearLayout>
 
 </LinearLayout>
+
